@@ -1,0 +1,33 @@
+{
+  "name": "daily-standup",
+  "version": "0.0.1",
+  "description": "A standup bot for compiling standup answers daily and storing persistently",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "standup": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhale3/daily-standup.git"
+  },
+  "keywords": [
+    "daily",
+    "standup",
+    "bot",
+    "questions",
+    "answers"
+  ],
+  "author": "Anish Khale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akhale3/daily-standup/issues"
+  },
+  "homepage": "https://github.com/akhale3/daily-standup#readme",
+  "dependencies": {
+    "inquirer": "^6.2.0",
+    "json2md": "^1.6.1"
+  }
+}
