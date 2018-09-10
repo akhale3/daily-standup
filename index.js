@@ -29,13 +29,14 @@ const prompts = [{
 inquirer.prompt(prompts[0])
   .then(answers => {
     if (!answers.confirmation) {
-      return;
+      throw new Error('confirmation');
     }
 
     return inquirer.prompt(prompts.slice(1));
   })
   .then(answers => {
     let md = [];
+    let answer = '';
     const today = (new Date()).toDateString();
 
     md.push({
@@ -45,8 +46,12 @@ inquirer.prompt(prompts[0])
     prompts.slice(1).forEach(prompt => {
       md.push({
         h2: prompt.message
-      }, {
-        ul: answers[prompt.name].trim().split('\n')
+      });
+      
+      answer = answers[prompt.name].trim().split('\n');
+
+      md.push({
+        ul: answer.filter(line => line.length)
       });
     });
 
@@ -58,5 +63,7 @@ inquirer.prompt(prompts[0])
     return appendFileAsync(`${__dirname}/logs/${filename}.md`, markdown + os.EOL);
   })
   .catch(err => {
-    console.error(err);
+    if (!/confirmation/.test(err)) {
+      console.error(err);
+    }
   });
