@@ -12,5 +12,6 @@ module.exports = {
     webhookEndpoint: process.env.SLACK_WEBHOOK_ENDPOINT,
     storeTeamInfoInFile: true
   },
-  slackBotId: process.env.SLACK_BOT_ID
+  slackBotId: process.env.SLACK_BOT_ID,
+  slackWebhookUrl: process.env.SLACK_WEBHOOK_URL
 };

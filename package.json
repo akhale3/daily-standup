@@ -4,10 +4,12 @@
   "description": "A standup bot for compiling standup answers daily and storing persistently",
   "main": "index.js",
   "scripts": {
+    "cli": "node -pe \"const { cli } = require('./index'); cli.standup();\"",
+    "slack": "node -pe \"const { slack } = require('./index'); slack.standup();\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "standup": "./index.js"
+    "standup": "./bin/standup.js"
   },
   "repository": {
     "type": "git",
