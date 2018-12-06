@@ -27,6 +27,7 @@ const standup = () => {
     message: 'Do you have any obstacles? If yes, please list them.',
     type: 'editor'
   }];
+  const today = new Date();
 
   inquirer.prompt(prompts[0])
     .then(answers => { // Ask questions on CLI
@@ -39,12 +40,11 @@ const standup = () => {
     .then(answers => { // Format Github and Slack flavored Markdown
       let md = [];
       let answer = '';
-      const today = (new Date()).toDateString();
       let slackMessage = `*${today}*`;
       slackMessage += '\n\n';
 
       md.push({
-        h1: today
+        h1: today.toDateString()
       });
 
       prompts.slice(1).forEach(prompt => {
@@ -73,7 +73,8 @@ const standup = () => {
       ]);
     })
     .then(markdown => { // Save Github flavored Markdown
-      const filename = (new Date()).toLocaleString().slice(0, 10);
+      const filename = (new Date(today.getTime()
+        + (today.getTimezoneOffset() * 60 * 1000))).toISOString().slice(0, 10);
 
       appendFileAsync(`${__dirname}/logs/${filename}.md`, markdown[0] + os.EOL);
 
