@@ -40,11 +40,12 @@ const standup = () => {
     .then(answers => { // Format Github and Slack flavored Markdown
       let md = [];
       let answer = '';
-      let slackMessage = `*${today}*`;
+      const dateString = today.toDateString();
+      let slackMessage = `*${dateString}*`;
       slackMessage += '\n\n';
 
       md.push({
-        h1: today.toDateString()
+        h1: dateString
       });
 
       prompts.slice(1).forEach(prompt => {
