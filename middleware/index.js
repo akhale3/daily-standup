@@ -10,12 +10,14 @@ const questions = {
 let sessions = {};
 
 const format = (style, contents) => {
+  const today = new Date();
+
   if (style === 'slack') {
-    let result = '';
+    let result = `*${today.toDateString()}*` + '\n\n';
 
     contents.forEach(content => {
       result += '*' + content.q + '*' + '\n';
-      result += content.a + '\n';
+      result += '```' + content.a + '```' + '\n';
     });
 
     return result;
