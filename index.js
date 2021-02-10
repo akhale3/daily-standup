@@ -42,6 +42,15 @@ inquirer.prompt(prompts[0])
     let slackMessage = `*${today}*`;
     slackMessage += '\n\n';
 
+    const slackUser = process.env.SLACK_USERNAME;
+    if (slackUser) {
+      slackMessage += `*Who are you?*`;
+      slackMessage += '```';
+      slackMessage += slackUser;
+      slackMessage += '```';
+      slackMessage += '\n';
+    }
+
     md.push({
       h1: today
     });

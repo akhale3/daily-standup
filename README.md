@@ -10,6 +10,10 @@ git@github.com:akhale3/daily-standup.git
 ```shell
 npm install
 ```
+3. Link the binary to your local npm installation to enable `standup` command.
+```shell
+npm link
+```
 
 ## Slack Setup (Optional)
 1. Create an `IncomingWebhook` URL for Slack to post to a direct message or
@@ -17,7 +21,11 @@ channel by following the instructions on
 [Slack](https://api.slack.com/incoming-webhooks#create_a_webhook).
 2. Set the environment variable to the newly created webhook.
 ```shell
-export SLACK_WEBHOOK_URL='https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX'
+export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+```
+3. Set your username to distinguish your standup message from others.
+```shell
+export SLACK_USERNAME='Your Awesome Username'
 ```
 
 ## Execution
