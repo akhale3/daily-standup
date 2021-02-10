@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/akhale3/daily-standup#readme",
   "dependencies": {
-    "@slack/client": "^4.8.0",
+    "@slack/client": "^5.0.2",
     "inquirer": "^6.2.0",
     "json2md": "^1.6.1"
   }
