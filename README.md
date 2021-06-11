@@ -8,11 +8,16 @@ git@github.com:akhale3/daily-standup.git
 ```
 2. Install dependencies.
 ```shell
-npm install
+npm ci
 ```
 3. Link the binary to your local npm installation to enable `standup` command.
 ```shell
 npm link
+```
+4. Ensure your editor of choice is already set by running `echo $EDITOR`.
+If not, set it.
+```shell
+export EDITOR=vim
 ```
 
 ## Slack Setup (Optional)
